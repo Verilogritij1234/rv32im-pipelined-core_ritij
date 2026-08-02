@@ -1,0 +1,35 @@
+
+read_lef /mnt/c/Users/ritiz/Downloads/OpenROAD-master/OpenROAD-master/src/odb/test/data/sky130hd/sky130hd_multi_patterned.tlef
+read_lef /mnt/c/Users/ritiz/Downloads/OpenROAD-master/OpenROAD-master/test/sky130hd/sky130_fd_sc_hd.lef
+read_liberty /mnt/c/Users/ritiz/Downloads/OpenROAD-master/OpenROAD-master/test/sky130hd/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog netlist_sky_cpu_top.v
+link_design cpu_top
+
+initialize_floorplan -die_area "0 0 300 300" \
+                     -core_area "10 10 290 290" \
+                     -site unithd
+
+make_tracks li1  -x_offset 0.23 -x_pitch 0.46 -y_offset 0.17 -y_pitch 0.34
+make_tracks met1 -x_offset 0.17 -x_pitch 0.34 -y_offset 0.17 -y_pitch 0.34
+make_tracks met2 -x_offset 0.23 -x_pitch 0.46 -y_offset 0.23 -y_pitch 0.46
+make_tracks met3 -x_offset 0.34 -x_pitch 0.68 -y_offset 0.34 -y_pitch 0.68
+make_tracks met4 -x_offset 0.46 -x_pitch 0.92 -y_offset 0.46 -y_pitch 0.92
+make_tracks met5 -x_offset 1.70 -x_pitch 3.40 -y_offset 1.70 -y_pitch 3.40
+
+place_pins -hor_layers {met1} -ver_layers {met2}
+add_global_connection -net one_ -pin VPWR -power
+add_global_connection -net zero_ -pin VGND -ground
+global_connect
+
+# Lower target density to spread cells
+global_placement -density 0.55
+
+# Add uniform padding around cells
+set_placement_padding -global -left 2 -right 2
+detailed_placement
+global_route
+detailed_route
+
+write_def third_optimized_cpu_top_sky.def
+write_verilog pnr_netlist_cpu_top.v
+

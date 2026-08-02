@@ -1,0 +1,11 @@
+
+# 1. Compile with the return sum change
+riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -O0 -nostdlib -Ttext 0x0 start.S main.c -o program.elf
+
+# 2. Extract raw binary
+riscv64-unknown-elf-objcopy -O binary program.elf program.bin
+
+# 3. Format for your Verilog ROM
+python3 make_hex.py
+
+

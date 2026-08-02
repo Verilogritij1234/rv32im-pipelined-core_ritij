@@ -1,0 +1,40 @@
+# 1. Read all your Verilog files
+read_verilog cpu_top.v
+read_verilog control_unit.v
+read_verilog regfile.v
+read_verilog alu.v
+read_verilog alu_control.v
+read_verilog rom.v
+read_verilog parameterized_RAM.v
+read_verilog program_counter.v
+read_verilog hardware_multiplier.v
+read_verilog memory_interconnect.v
+read_verilog forwarding_unit.v
+# Include your pipeline register files here (if separate)
+read_verilog if_id_reg.v
+read_verilog id_ex_reg.v
+read_verilog ex_mem_reg.v
+read_verilog mem_wb_reg.v
+read_verilog hazard_detection.v
+
+# 2. Identify the Top Module
+hierarchy -check -top cpu_top
+
+# 3. High-level synthesis (generic optimizations)
+proc; opt; fsm; opt; memory; opt
+
+# 4. Map to generic gate library (AND, OR, NOT, MUX)
+techmap; opt
+
+# 5. Print out the statistics
+stat
+
+
+
+
+
+
+
+
+
+
