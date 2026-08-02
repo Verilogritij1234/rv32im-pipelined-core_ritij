@@ -87,11 +87,11 @@ Below are the heatmaps and layout views generated during the physical design flo
 
 | Routing Congestion | Estimated Congestion (RUDY) |
 | :---: | :---: |
-| <img src="assets/Screenshot%202026-03-31%20224236.jpg" width="400"> | <img src="assets/Screenshot%202026-03-31%20224329.jpg" width="400"> |
+| <img src="processor_layout_openroad/Screenshot%202026-03-31%20224236.png" width="400"> | <img src="processor_layout_openroad/Screenshot%202026-03-31%20224329.png" width="400"> |
 
 | IR Drop Heatmap | Instance Placement & Inspector |
 | :---: | :---: |
-| <img src="assets/Screenshot%202026-03-31%20224350.jpg" width="400"> | <img src="assets/Screenshot%202026-03-31%20224501.jpg" width="400"> |
+| <img src="processor_layout_openroad/Screenshot%202026-03-31%20224350.png" width="400"> | <img src="processor_layout_openroad/Screenshot%202026-03-31%20224501.png" width="400"> |
 
 ## 🛠️ Future Improvements
 
