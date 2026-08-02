@@ -33,6 +33,7 @@ It is designed with complete hazard management, including dynamic data forwardin
 ├── syn/                        # Synthesis and Physical Design outputs
 │   ├── netlists/               # Synthesized gate-level netlists (.v)
 │   └── def/                    # Design Exchange Format files (.def)
+├── assets/                     # OpenROAD layout screenshots
 ├── tb/                         # Testbenches
 │   └── cpu_top_tb.v            # Main testbench for the CPU
 ├── programs/                   # Software and test programs
@@ -56,8 +57,8 @@ To simulate, synthesize, and view the physical layouts of this core, you will ne
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/rv32im-pipelined-core.git](https://github.com/yourusername/rv32im-pipelined-core.git)
-   cd rv32im-pipelined-core
+   git clone [https://github.com/yourusername/rv32im-pipelined-core_ritij_processor.git](https://github.com/yourusername/rv32im-pipelined-core_ritij_processor.git)
+   cd rv32im-pipelined-core_ritij_processor
    ```
 
 2. **Compile the Verilog files:**
@@ -79,6 +80,18 @@ To simulate, synthesize, and view the physical layouts of this core, you will ne
 
 * **Synthesis:** Use Yosys to synthesize the design in the `rtl/` directory. Target gate-level netlists are saved in `syn/netlists/`.
 * **Layout Viewing:** Use the OpenROAD GUI to open and inspect the physical layout files located in `syn/def/`.
+
+## 🎨 Physical Design & OpenROAD Layouts
+
+Below are the heatmaps and layout views generated during the physical design flow of `cpu_top` using OpenROAD:
+
+| Routing Congestion | Estimated Congestion (RUDY) |
+| :---: | :---: |
+| <img src="assets/Screenshot%202026-03-31%20224236.jpg" width="400"> | <img src="assets/Screenshot%202026-03-31%20224329.jpg" width="400"> |
+
+| IR Drop Heatmap | Instance Placement & Inspector |
+| :---: | :---: |
+| <img src="assets/Screenshot%202026-03-31%20224350.jpg" width="400"> | <img src="assets/Screenshot%202026-03-31%20224501.jpg" width="400"> |
 
 ## 🛠️ Future Improvements
 
