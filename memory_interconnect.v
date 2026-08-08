@@ -1,3 +1,8 @@
+#
+# Copyright (c) 2026, Ritij Kaushal
+# All rights reserved.
+# 
+
 module memory_interconnect (
     input  wire        clk,
     input  wire        we,         //  signal for write Enable from cpu   
